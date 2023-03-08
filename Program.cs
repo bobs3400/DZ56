@@ -24,17 +24,22 @@ int[,] GetArray(int m, int n, int minValue, int maxValue)
 
 int MinSumLine(int[,] Array)
 {   
-    int min = 0;
-    for(int i = 0; i < Array.GetLength(0); i++)
+    int minsum = 0;
+    for(int j = 0; j < Array.GetLength(1); j++)
+    {
+        minsum = minsum + Array[0, j];
+    }
+    int minline = 0;
+    for(int i = 1; i < Array.GetLength(0); i++)
     {   
         int sum = 0;
         for(int j = 0; j < Array.GetLength(1); j++)
         {   
             sum = sum + Array[i, j];
         }
-        if(sum < min) { min = i;}
+        if(sum < minsum) {minline = i;}
     }
-    return min;
+    return minline;
 }
 
 void PrintArray(int[,] inArray)
